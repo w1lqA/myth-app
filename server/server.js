@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 const cors = require('cors');
 app.use(cors());
 
-app.post('/send-message', (req, res) => {
+app.post('/api/send-message', (req, res) => {
     const { name, email, message } = req.body;
     
     const telegramMessage = `New Contact Form Submission:\nName: ${name}\nEmail: ${email}\nMessage: ${message}`;

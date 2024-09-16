@@ -12,7 +12,7 @@ export const ContactForm = () => {
     const handleSubmit = (e) => {
         console.log(formData)
         e.preventDefault();
-        fetch('http://212.67.15.87/send-message', {
+        fetch('http://212.67.15.87/api/send-message', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData),
