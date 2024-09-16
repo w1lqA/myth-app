@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import BG from '../assets/slider-bg2.png'
 import Arrow from '../assets/arrow.svg'
 import Pic1 from '../assets/sliderPic.jpg'
@@ -34,14 +34,13 @@ export const SliderSection = () => {
         slider?.current?.slickPrev()
         setCurrentSlide(CurrentSlide>0 ? CurrentSlide-1 : SlidesAmount-1-CurrentSlide)
     }
-
     const handleRButtonState = () => {
         slider?.current?.slickNext()
         setCurrentSlide(CurrentSlide< SlidesAmount-1 ? CurrentSlide+1 : 0)
     }
 
     const sliderSettings = {
-        draggable: false,
+        draggable: true,
         swipe: true,
         infinite: true,
         slidesToShow: 1,
@@ -49,7 +48,12 @@ export const SliderSection = () => {
         speed: 200,
         dots: false,
         arrows: false,
+        afterChange: (current) => {
+            setCurrentSlide(current)
+        }
     }
+ 
+
     const slides = [
         {
             description:
@@ -61,34 +65,36 @@ export const SliderSection = () => {
                 в «Мифах Поволжья»!
             </>),
             composition:
-            (<div className='relative flex flex-col items-center justify-center'>
+            (<div className='relative flex flex-col items-center justify-center '>
                 <div
                     style={{
                         backgroundImage: `url(${Pic1})`,
                         backgroundPosition: 'center',
                         backgroundRepeat: 'no-repeat',
                     }}
-                    className="inset-0 w-full clipped-background bg-cover bg-clip-padding z-10"
+                    className="inset-0 w-full  clipped-background bg-cover bg-clip-padding z-10"
                 >
-                    <div className='md:px-72 py-48 sm:px-64 xs:px-48 px-32'></div>
+                    <div className='md:px-72 py-48 sm:px-64 xs:px-48 px-32 '></div>
                 </div>
-                <img
-                    draggable={false}
-                    src={PicOverlayLeft}
-                    className='absolute inset-0 z-20 self-start justify-self-start md:w-72 w-48 md:-translate-y-6 translate-y-36 md:-translate-x-24 sm:translate-x-12 -translate-x-12'
-                />
-                <img draggable={false}
-                    src={PicOverlayRight1}
-                    className='absolute inset-0 z-30 self-end justify-self-center md:w-32 w-24 md:translate-y-24 translate-y-20 translate-x-6 scale-x-[-1]'
-                />
-                <img draggable={false}
-                    src={PicOverlayRight2}
-                    className='absolute inset-0 z-20 self-end justify-self-end md:w-72 w-48 translate-y-16 md:translate-x-0 sm:-translate-x-24 xs:-translate-x-3 translate-x-12 scale-x-[-1]'
-                />
-                <img draggable={false}
-                    src={PicOverlayRight3}
-                    className='absolute inset-0 z-30 self-end justify-self-end md:w-32 w-24 translate-y-16 md:translate-x-12 sm:-translate-x-12 xs:translate-x-6 translate-x-12 scale-x-[-1]'
-                />
+                <div className='*:animate-in *:duration-700 *:fade-in *:zoom-in-50'>
+                    <img
+                        draggable={false}
+                        src={PicOverlayLeft}
+                        className='absolute inset-0 z-20 self-start justify-self-start md:w-72 w-48 md:-translate-y-6 translate-y-36 md:-translate-x-24 sm:translate-x-12 -translate-x-12'
+                    />
+                    <img draggable={false}
+                        src={PicOverlayRight1}
+                        className='absolute inset-0 z-30 self-end justify-self-center md:w-32 w-24 md:translate-y-24 translate-y-20 translate-x-6 scale-x-[-1]'
+                    />
+                    <img draggable={false}
+                        src={PicOverlayRight2}
+                        className='absolute inset-0 z-20 self-end justify-self-end md:w-72 w-48 translate-y-16 md:translate-x-0 sm:-translate-x-24 xs:-translate-x-3 translate-x-12 scale-x-[-1]'
+                    />
+                    <img draggable={false}
+                        src={PicOverlayRight3}
+                        className='absolute inset-0 z-30 self-end justify-self-end md:w-32 w-24 translate-y-16 md:translate-x-12 sm:-translate-x-12 xs:translate-x-6 translate-x-12 scale-x-[-1]'
+                    />
+                </div>
             </div>)
         },
         {
@@ -111,34 +117,34 @@ export const SliderSection = () => {
                 >
                     <div className='md:px-72 py-48 sm:px-64 xs:px-48 px-32'></div>
                 </div>
-                <img
-                    draggable={false}
-                    src={Pic2overlay}
-                    className='absolute inset-0 z-20 self-start justify-self-center md:w-72 w-48 md:-translate-y-6 translate-y-36 md:-translate-x-24 sm:translate-x-12 -translate-x-12'
-                />
+                <div className='*:animate-in *:duration-700 *:fade-in *:zoom-in-50'>
+                    <img
+                        draggable={false}
+                        src={Pic2overlay}
+                        className='absolute inset-0 z-20 self-start justify-self-center md:w-72 w-48 md:-translate-y-6 translate-y-36 md:-translate-x-24 sm:translate-x-12 -translate-x-12'
+                    />
+                    <div className='absolute inset-0 z-20 self-end justify-self-center translate-x-36 -translate-y-20 sm:scale-100 scale-75'>
+                        <img draggable={false}
+                            src={InventoryUI}
+                            className=' w-44'
+                        />
+                        <img draggable={false}
+                        src={InventoryItem1}
+                        className=' absolute inset-0 z-20 w-36 -translate-x-2 -translate-y-2'
+                        />
+                    </div>
 
-                <div className='absolute inset-0 z-20 self-end justify-self-center translate-x-36 -translate-y-20 sm:scale-100 scale-75'>
-                    <img draggable={false}
-                        src={InventoryUI}
-                        className=' w-44'
-                    />
-                    <img draggable={false}
-                    src={InventoryItem1}
-                    className='absolute inset-0 z-20 w-36 -translate-x-2 -translate-y-2'
-                    />
+                    <div className='absolute inset-0 z-20 self-end justify-self-center translate-x-36 translate-y-20 sm:scale-100 scale-75'>
+                        <img draggable={false}
+                            src={InventoryUI}
+                            className=' w-44'
+                        />
+                        <img draggable={false}
+                        src={InventoryItem2}
+                        className='absolute inset-0 z-20 rotate-180 w-36 -translate-x-2 -translate-y-2'
+                        />
+                    </div>
                 </div>
-
-                <div className='absolute inset-0 z-20 self-end justify-self-center translate-x-36 translate-y-20 sm:scale-100 scale-75'>
-                    <img draggable={false}
-                        src={InventoryUI}
-                        className=' w-44'
-                    />
-                    <img draggable={false}
-                    src={InventoryItem2}
-                    className='absolute inset-0 z-20 rotate-180 w-36 -translate-x-2 -translate-y-2'
-                    />
-                </div>
-   
             </div>),
 
         },
@@ -164,25 +170,27 @@ export const SliderSection = () => {
                     <img src={Pic3Composition3} className='absolute inset-0 self-end justify-self-start z-20 scale-x-[-1] w-56'/>
                     <img src={Pic3Composition2} className='absolute inset-0 self-end justify-self-center z-10 w-full'/>
                 </div>
-                <img
-                    draggable={false}
-                    src={Pic3Char1}
-                    className='absolute inset-0 z-30 self-end justify-self-start translate-y-20 sm:translate-x-0 -translate-x-20 md:w-48 w-36 '
-                />
-                <img
-                    draggable={false}
-                    src={Pic3Char2}
-                    className='absolute inset-0 z-20 self-end justify-self-start translate-y-12 sm:translate-x-32 translate-x-6 md:w-28 w-20'
-                />
+                <div className='*:animate-in *:duration-700 *:fade-in *:zoom-in-50'>
+                    <img
+                        draggable={false}
+                        src={Pic3Char1}
+                        className='absolute inset-0 z-30 self-end justify-self-start translate-y-20 sm:translate-x-0 -translate-x-20 md:w-48 w-36 '
+                    />
+                    <img
+                        draggable={false}
+                        src={Pic3Char2}
+                        className='absolute inset-0 z-20 self-end justify-self-start translate-y-12 sm:translate-x-32 translate-x-6 md:w-28 w-20'
+                    />
 
-                <img draggable={false}
-                    src={Pic3Char3}
-                    className='absolute inset-0 z-20 self-end justify-self-end sm:-translate-x-36 -translate-x-4 translate-y-16 scale-x-[-1] md:w-32 w-24'
-                />
-                <img draggable={false}
-                    src={Pic3Char4}
-                    className='absolute inset-0 z-30 self-end justify-self-end translate-y-20 sm:-translate-x-4 translate-x-16 scale-x-[-1] md:w-36 w-28'
-                />
+                    <img draggable={false}
+                        src={Pic3Char3}
+                        className='absolute inset-0 z-20 self-end justify-self-end sm:-translate-x-36 -translate-x-4 translate-y-16 scale-x-[-1] md:w-32 w-24'
+                    />
+                    <img draggable={false}
+                        src={Pic3Char4}
+                        className='absolute inset-0 z-30 self-end justify-self-end translate-y-20 sm:-translate-x-4 translate-x-16 scale-x-[-1] md:w-36 w-28'
+                    />
+                </div>
             </div>)
         }
     ]

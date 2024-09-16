@@ -23,16 +23,16 @@ export const Main = () => {
         lg:pr-32 md:pr-16 pr-0'>
             <div className="flex flex-row 
                 md:justify-start items-start justify-center">
-                <img draggable={false} src={Char1} alt="Characters" 
-                    className="absolute z-10 md:translate-y-6 translate-y-48
+                <img draggable={false} src={Char1}
+                    className="absolute z-10 md:translate-y-6 translate-y-48 animate-in duration-500 fade-in zoom-in-50
                     lg:w-96 md:w-72 sm:w-56 w-48 md:translate-x-0 -translate-x-20"/>
-                <img draggable={false} src={Char2} alt="Characters" 
-                    className="absolute scale-x-[-1]
+                <img draggable={false} src={Char2}
+                    className="absolute scale-x-[-1] animate-in duration-700 fade-in zoom-in-50
                     lg:w-96 md:w-72 sm:w-56 w-48
                     lg:translate-x-80 md:translate-x-56 translate-x-20 md:translate-y-0 translate-y-48"/>
             </div>
 
-            <div className="col-span-5 flex flex-col justify-center space-y-24 items-center">
+            <div className="col-span-5 flex flex-col justify-center space-y-24 items-center *:animate-in *:duration-700 *:fade-in *:zoom-in-50">
                 <img draggable={false} src={Logo} className='drop-shadow-4xl md:translate-y-0 -translate-y-16'/>
                 <div className='drop-shadow-4xl relative overflow-hidden z-30 flex items-center justify-center md:translate-y-0 translate-y-32  sm:scale-100 xs:scale-90 scale-75'>
                     <img 

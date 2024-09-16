@@ -29,16 +29,28 @@ export const Gallery = () => {
         speed: 200,
         dots: false,
         arrows: false,
+        afterChange: (current) => {
+            setCurrentSlide(current)
+        }
     }
 
     return (
     <div className='bg-main max-w-screen-xl mx-auto pb-24 '>
+            <h1 className='text-secondary font-normal text-2xl mx-auto text-center'>
+        Полюбуйся на арт игровой!
+    </h1>
       <Slider ref={slider} {...sliderSettings}>
             <div className='flex flex-col mx-auto bg-main'>
-                <h1 className='text-secondary font-normal text-2xl mx-auto text-center'>
-                    Полюбуйся на арт игровой!
-                </h1>
-                <div className='flex flex-col justify-center items-center relative pb-24 pt-72'>
+                <div className='flex flex-col justify-center items-center relative pb-24 pt-72 *:animate-in *:duration-700 *:fade-in *:zoom-in-50'>
+                    <img draggable={false} src={Glow1} className='mx-auto absolute inset-0 self-center w-96 mix-blend-screen z-20 '/>
+                    <img draggable={false} src={Glow2} className='mx-auto absolute inset-0 self-center w-96 z-10 mix-blend-screen '/>
+                    <img src={Char} className='w-48 mx-auto absolute inset-0 self-center z-30'/>
+                    <img draggable={false} src={Composition1} className='mx-auto w-96'/>
+                </div>
+            </div>
+            <div className='flex flex-col mx-auto bg-main'>
+
+                <div className='flex flex-col justify-center items-center relative pb-24 pt-72 *:animate-in *:duration-700 *:fade-in *:zoom-in-50'>
                     <img draggable={false} src={Glow1} className='mx-auto absolute inset-0 self-center w-96 mix-blend-screen z-20'/>
                     <img draggable={false} src={Glow2} className='mx-auto absolute inset-0 self-center w-96 z-10 mix-blend-screen '/>
                     <img src={Char} className='w-48 mx-auto absolute inset-0 self-center z-30'/>
@@ -46,22 +58,9 @@ export const Gallery = () => {
                 </div>
             </div>
             <div className='flex flex-col mx-auto bg-main'>
-                <h1 className='text-secondary font-normal text-2xl mx-auto text-center'>
-                    Полюбуйся на арт игровой!
-                </h1>
-                <div className='flex flex-col justify-center items-center relative pb-24 pt-72'>
-                    <img draggable={false} src={Glow1} className='mx-auto absolute inset-0 self-center w-96 mix-blend-screen z-20'/>
-                    <img draggable={false} src={Glow2} className='mx-auto absolute inset-0 self-center w-96 z-10 mix-blend-screen '/>
-                    <img src={Char} className='w-48 mx-auto absolute inset-0 self-center z-30'/>
-                    <img draggable={false} src={Composition1} className='mx-auto w-96'/>
-                </div>
-            </div>
-            <div className='flex flex-col mx-auto bg-main'>
-                <h1 className='text-secondary font-normal text-2xl mx-auto text-center'>
-                    Полюбуйся на арт игровой!
-                </h1>
-                <div className='flex flex-col justify-center items-center relative pb-24 pt-72'>
-                    <img draggable={false} src={Glow1} className='mx-auto absolute inset-0 self-center w-96 mix-blend-screen z-20'/>
+
+                <div className='flex flex-col justify-center items-center relative pb-24 pt-72 *:animate-in *:duration-700 *:fade-in *:zoom-in-50'>
+                    <img draggable={false} src={Glow1} className='mx-auto absolute inset-0 self-center w-96 mix-blend-screen z-20 '/>
                     <img draggable={false} src={Glow2} className='mx-auto absolute inset-0 self-center w-96 z-10 mix-blend-screen '/>
                     <img src={Char} className='w-48 mx-auto absolute inset-0 self-center z-30'/>
                     <img draggable={false} src={Composition1} className='mx-auto w-96'/>
