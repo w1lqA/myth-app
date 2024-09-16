@@ -40,7 +40,7 @@ export const Gallery = () => {
         Полюбуйся на арт игровой!
     </h1>
       <Slider ref={slider} {...sliderSettings}>
-            <div className='flex flex-col mx-auto bg-main'>
+            <div className='flex flex-col mx-auto bg-main '>
                 <div className='flex flex-col justify-center items-center relative pb-24 pt-72 *:animate-in *:duration-700 *:fade-in *:zoom-in-50'>
                     <img draggable={false} src={Glow1} className='mx-auto absolute inset-0 self-center w-96 mix-blend-screen z-20 '/>
                     <img draggable={false} src={Glow2} className='mx-auto absolute inset-0 self-center w-96 z-10 mix-blend-screen '/>

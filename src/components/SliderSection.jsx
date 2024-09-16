@@ -203,7 +203,7 @@ export const SliderSection = () => {
         >
             <Slider ref={slider} {...sliderSettings}>
                 {slides.map((slide,i) => (
-                    <div className="relative justify-self-center z-20">
+                    <div className={`relative justify-self-center transition-opacity ease-in z-2 ${ i === CurrentSlide ? 'opacity-100' : 'opacity-75' }`}>
                     <div className='flex lg:flex-row mx-auto flex-col justify-center items-center lg:py-24 py-12'>
                         {slide.composition}
                         <div className='flex flex-col justify-end items-start col-span-5 lg:pl-24 lg:pt-0 pl-0 pt-32'>
